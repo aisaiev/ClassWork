@@ -105,5 +105,31 @@ namespace ClassWork
                 }
             }
         }
+
+        private static void Task6()
+        {
+            Console.Write("Enter number from 0 till 100:");
+            int number = int.Parse(Console.ReadLine());
+            if (number >= 0 && number <= 14)
+            {
+                Console.WriteLine($"Number {number} in [0-14] range");
+            }
+            if (number >= 15 && number <=35)
+            {
+                Console.WriteLine($"Number {number} in [15-35] range");
+            }
+            if (number >= 35 && number <= 50)
+            {
+                Console.WriteLine($"Number {number} in [35-50] range");
+            }
+            if (number >= 50 && number <= 100)
+            {
+                Console.WriteLine($"Number {number} in [50-100] range");
+            }
+            else
+            {
+                Console.WriteLine($"Number {number} is not in [0-100] range");
+            }
+        }
     }
 }
