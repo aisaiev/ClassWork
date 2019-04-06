@@ -54,5 +54,18 @@ namespace ClassWork
                 Console.WriteLine($"Number {number} contains 3 digits");
             }
         }
+
+        private static void Task4()
+        {
+            int x= 10;
+            int y= 12;
+            int z= 3;
+
+            Console.WriteLine($"x=10, y=12, z=3 \nOperation: x += y - x++ * z \nx={x += y - x++ * z}");
+            Console.WriteLine($"x=10, y=12, z=3 \nOperation: z = --x - y * 5 \nz={--x - y * 5}");
+            Console.WriteLine($"x=10, y=12, z=3 \nOperation: y /= x + 5 % z \ny={y /= x + 5 % z}");
+            Console.WriteLine($"x=10, y=12, z=3 \nOperation: z = x++ + y * 5 \nz={x++ + y * 5}");
+            Console.WriteLine($"x=10, y=12, z=3 \nOperation: x = y - x++ * z \nx={y - x++ * z}");
+        }
     }
 }
