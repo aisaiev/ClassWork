@@ -10,6 +10,7 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
+            Task9();
         }
 
         private static void Task1()
@@ -191,6 +192,60 @@ namespace ClassWork
             {
                 Console.WriteLine($"Bounty is: {sallary * 0.5}");
             }
+        }
+
+        private static void Task9()
+        {
+            bool isNewAttempt = false;
+            do
+            {
+                Console.Write("Enter the first number: ");
+                double operand1 = double.Parse(Console.ReadLine());
+                Console.Write("Enter the second number: ");
+                double operand2 = double.Parse(Console.ReadLine());
+                bool isOperationValid = false;
+
+                while (!isOperationValid)
+                {
+                    Console.Write("Enter operation [+ - * /]: ");
+                    string sign = Console.ReadLine();
+                    switch (sign)
+                    {
+                        case "+":
+                            Console.WriteLine($"{operand1} + {operand2} = {operand1 + operand2}");
+                            isOperationValid = true;
+                            break;
+                        case "-":
+                            Console.WriteLine($"{operand1} - {operand2} = {operand1 - operand2}");
+                            isOperationValid = true;
+                            break;
+                        case "*":
+                            Console.WriteLine($"{operand1} * {operand2} = {operand1 * operand2}");
+                            isOperationValid = true;
+                            break;
+                        case "/" when operand2 != 0:
+                            Console.WriteLine($"{operand1} / {operand2} = {operand1 / operand2}");
+                            isOperationValid = true;
+                            break;
+                        default:
+                            Console.WriteLine("Divide by zero or plese enter valid math operation!");
+                            isOperationValid = false;
+                            break;
+                    }
+                }
+
+                Console.Write("Do you want to try again y/n: ");
+                string result = Console.ReadLine();
+                switch (result)
+                {
+                    case "y":
+                        isNewAttempt = true;
+                        break;
+                    case "n":
+                        isNewAttempt = false;
+                        break;
+                }
+            } while (isNewAttempt);
         }
     }
 }
