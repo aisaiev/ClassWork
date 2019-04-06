@@ -10,7 +10,6 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
-            Task9();
         }
 
         private static void Task1()
@@ -246,6 +245,18 @@ namespace ClassWork
                         break;
                 }
             } while (isNewAttempt);
+        }
+
+        private static void Task10()
+        {
+            int factorial = 1;
+            Console.Write("Enter number to calculate factorial: ");
+            int number = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= number; i++)
+            {
+                factorial *= i;
+            }
+            Console.WriteLine($"{number}! = {factorial}");
         }
     }
 }
