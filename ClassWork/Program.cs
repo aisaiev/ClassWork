@@ -10,6 +10,14 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
+            Task1();
+        }
+
+        static void Task1()
+        {
+            int seconds = int.Parse(Console.ReadLine());
+            int hours = seconds / 3600;
+            Console.WriteLine($"Hours: {hours}");
         }
     }
 }
