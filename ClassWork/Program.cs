@@ -37,5 +37,22 @@ namespace ClassWork
                 Console.WriteLine($"{numberB} is not between number {numberA} and number {numberC}");
             }
         }
+
+        private static void Task3()
+        {
+            int numberOfDigits = 0;
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+            int tempNumber = number;
+            while (tempNumber != 0)
+            {
+                tempNumber /= 10;
+                numberOfDigits++;
+            }
+            if (numberOfDigits == 3)
+            {
+                Console.WriteLine($"Number {number} contains 3 digits");
+            }
+        }
     }
 }
