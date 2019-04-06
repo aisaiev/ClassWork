@@ -159,5 +159,38 @@ namespace ClassWork
                 Console.WriteLine("Weather condition isn't found in vocabulary");
             }
         }
+
+        private static void Task8()
+        {
+            Console.Write("Enter long and meritorious service in years: ");
+            int years = int.Parse(Console.ReadLine());
+            Console.Write("Enter sallary to calculate bounty: ");
+            int sallary = int.Parse(Console.ReadLine());
+
+            if (years < 5)
+            {
+                Console.WriteLine($"Bounty is: {sallary * 0.1}");
+            }
+            if (years >=5 && years < 10)
+            {
+                Console.WriteLine($"Bounty is: {sallary * 0.15}");
+            }
+            if (years >= 10 && years < 15)
+            {
+                Console.WriteLine($"Bounty is: {sallary * 0.25}");
+            }
+            if (years >= 15 && years < 20)
+            {
+                Console.WriteLine($"Bounty is: {sallary * 0.35}");
+            }
+            if (years >= 20 && years < 25)
+            {
+                Console.WriteLine($"Bounty is: {sallary * 0.45}");
+            }
+            if (years >= 25)
+            {
+                Console.WriteLine($"Bounty is: {sallary * 0.5}");
+            }
+        }
     }
 }
