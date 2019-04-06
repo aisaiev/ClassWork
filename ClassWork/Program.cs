@@ -18,5 +18,24 @@ namespace ClassWork
             int hours = seconds / 3600;
             Console.WriteLine($"Hours: {hours}");
         }
+
+        private static void Task2()
+        {
+            Console.Write("Enter number A: ");
+            int numberA = int.Parse(Console.ReadLine());
+            Console.Write("Enter number B: ");
+            int numberB = int.Parse(Console.ReadLine());
+            Console.Write("Enter number C: ");
+            int numberC = int.Parse(Console.ReadLine());
+
+            if (numberA < numberB && numberB < numberC)
+            {
+                Console.WriteLine($"{numberB} between number {numberA} and number {numberC}");
+            }
+            else
+            {
+                Console.WriteLine($"{numberB} is not between number {numberA} and number {numberC}");
+            }
+        }
     }
 }
