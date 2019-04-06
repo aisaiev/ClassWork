@@ -131,5 +131,33 @@ namespace ClassWork
                 Console.WriteLine($"Number {number} is not in [0-100] range");
             }
         }
+
+        private static void Task7()
+        {
+            Dictionary<string, string> weatherConditionsVocabulary = new Dictionary<string, string>
+            {
+                { "дождь", "rain" },
+                { "снег", "snow" },
+                { "облачно", "cloudy" },
+                { "ветренно", "windy" },
+                { "жарко", "hot" },
+                { "тепло", "warm" },
+                { "холодно", "cool" },
+                { "прогноз", "forecast" },
+                { "thunder", "гром" },
+                { "ураган", "hurricane" }
+            };
+
+            Console.Write("Enter weather condition on RUS: ");
+            string rusWeatherCondtition = Console.ReadLine().ToLower();
+            if (weatherConditionsVocabulary.TryGetValue(rusWeatherCondtition, out string engWeatherCondtition))
+            {
+                Console.WriteLine($"{rusWeatherCondtition} : {engWeatherCondtition}");
+            }
+            else
+            {
+                Console.WriteLine("Weather condition isn't found in vocabulary");
+            }
+        }
     }
 }
