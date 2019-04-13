@@ -167,5 +167,15 @@ namespace ClassWork
                 }
             }
         }
+
+        private static int[] MyReverse(int[] array)
+        {
+            int[] reversedArray = new int[array.Length];
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                reversedArray[array.Length - 1 - i] = array[i];
+            }
+            return reversedArray;
+        }
     }
 }
