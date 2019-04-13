@@ -10,6 +10,7 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
+            Task2();
         }
 
         private static void Task1()
@@ -88,6 +89,40 @@ namespace ClassWork
         private static void PrintArrayOfNumbers(int[] array)
         {
             Console.WriteLine($"Array: {string.Join(",", array)}");
+        }
+
+        private static void Task2()
+        {
+            int[] array = new int[5];
+            Random rnd = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(0, 11);
+            }
+            PrintArrayOfNumbers(array);
+
+            int[] tempArr = array;
+            Array.Sort(tempArr);
+
+            List<int> dublicateValuesList = new List<int>();
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                if (tempArr[i + 1] == array[i])
+                {
+                    dublicateValuesList.Add(tempArr[i]);
+                }
+            }
+
+            List<int> arrayList = array.ToList();
+            foreach (var item in dublicateValuesList)
+            {
+                int index = Array.IndexOf(array, item);
+                arrayList.RemoveAt(index);
+            }
+
+            int[] resultArr = arrayList.ToArray();
+
+            PrintArrayOfNumbers(resultArr);
         }
     }
 }
