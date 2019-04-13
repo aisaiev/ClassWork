@@ -10,6 +10,7 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
+            Task11();
         }
 
         private static void Task1()
@@ -144,7 +145,7 @@ namespace ClassWork
                 { "тепло", "warm" },
                 { "холодно", "cool" },
                 { "прогноз", "forecast" },
-                { "thunder", "гром" },
+                { "гром", "thunder" },
                 { "ураган", "hurricane" }
             };
 
@@ -257,6 +258,73 @@ namespace ClassWork
                 factorial *= i;
             }
             Console.WriteLine($"{number}! = {factorial}");
+        }
+
+        private static void Task11()
+        {
+            //
+            // Draw line of symbols "*".
+            //
+            //Console.Write("Enter number of symbols: ");
+            //int numberOfSymbols = int.Parse(Console.ReadLine());
+            //for (int i = 0; i < numberOfSymbols; i++)
+            //{
+            //    Console.Write("*");
+            //}
+
+            //
+            // Draw rectangle of symbols "*" based on the height and width.
+            //
+            //Console.Write("Enter height of rectangle: ");
+            //int height = int.Parse(Console.ReadLine());
+            //Console.Write("Enter width of rectangle: ");
+            //int width = int.Parse(Console.ReadLine());
+            //for (int i = 0; i < height; i++)
+            //{
+            //    for (int j = 0; j < width; j++)
+            //    {
+            //        if (i == 0 || i == height - 1)
+            //        {
+            //            Console.Write("*");
+            //        }
+            //        else if (j == 0 || j == width - 1)
+            //        {
+            //            Console.Write("*");
+            //        }
+            //        else
+            //        {
+            //            Console.Write(" ");
+            //        }
+            //    }
+            //    Console.Write("\n");
+            //}
+
+            //
+            // Draw right triangle.
+            //
+
+            int height = 7;
+            int step = 1;
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < step; j++)
+                {
+                    if (j == 0 || j == step - 1)
+                    {
+                        Console.Write("*");
+                    }
+                    else if (i == height - 1)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write("*");
+                    }
+                }
+                step++;
+                Console.Write("\n");
+            }
         }
     }
 }
