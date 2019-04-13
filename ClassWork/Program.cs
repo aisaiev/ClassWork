@@ -10,7 +10,6 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
-            Task2();
         }
 
         private static void Task1()
@@ -123,6 +122,30 @@ namespace ClassWork
             int[] resultArr = arrayList.ToArray();
 
             PrintArrayOfNumbers(resultArr);
+        }
+
+        private static void Task3(int arraySize)
+        {
+            Console.Write("Enter min index: ");
+            int minIndex = int.Parse(Console.ReadLine());
+            Console.Write("Enter max index: ");
+            int maxIndex = int.Parse(Console.ReadLine());
+
+            Random rnd = new Random();
+            int[] array = new int[arraySize];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(0, 11);
+            }
+            PrintArrayOfNumbers(array);
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (i > minIndex && i < maxIndex)
+                {
+                    Console.WriteLine($"Index: {i} Value: {array[i]}");
+                }
+            }
         }
     }
 }
