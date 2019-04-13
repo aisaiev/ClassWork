@@ -147,5 +147,25 @@ namespace ClassWork
                 }
             }
         }
+
+        private static void Task4(int arraySize)
+        {
+            int[] array = new int[arraySize];
+            Random rnd = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(0, 11);
+            }
+            PrintArrayOfNumbers(array);
+            double averageNUmber = CalculateAverageNumberInArray(array);
+            Console.WriteLine($"Average: {averageNUmber}");
+            foreach (var item in array)
+            {
+                if (item > averageNUmber)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+        }
     }
 }
