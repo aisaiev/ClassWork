@@ -226,5 +226,39 @@ namespace ClassWork
             resultArray[0] = value;
             return resultArray;
         }
+
+        private static void Task8()
+        {
+            int[,] array = FillTwoDimensinalArrayByRandomNumbers(2, 5, 1, 11);
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+            int counter = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (array[i, j] == number)
+                    {
+                        counter++;
+                    }
+                }
+            }
+            Console.WriteLine($"Amount of number {number} in array is {counter}");
+        }
+
+        static int[,] FillTwoDimensinalArrayByRandomNumbers(int rowCount, int columnCount, int randomMinValue, int randomMaxValue)
+        {
+            int[,] array = new int[rowCount, columnCount];
+            Random rnd = new Random();
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                for (int j = 0; j < columnCount; j++)
+                {
+                    array[i, j] = rnd.Next(randomMinValue, randomMaxValue + 1);
+                }
+            }
+            return array;
+        }
     }
 }
