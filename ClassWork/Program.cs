@@ -211,5 +211,20 @@ namespace ClassWork
             }
             return resultArray;
         }
+
+        private static int[] IncreasingLengthOfArrayOfOne(int[] array)
+        {
+            int[] resultArray = new int[array.Length + 1];
+            Array.Copy(array, resultArray, array.Length);
+            return resultArray;
+        }
+
+        private static int[] CopyArray(int[] array, int value)
+        {
+            int[] resultArray = new int[array.Length + 1];
+            Array.Copy(array, 0, resultArray, 1, array.Length);
+            resultArray[0] = value;
+            return resultArray;
+        }
     }
 }
