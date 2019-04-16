@@ -291,5 +291,18 @@ namespace ClassWork
                 Console.WriteLine();
             }
         }
+
+        private static void Task10()
+        {
+            Console.Write("Enter column index to calculate sum of elements: ");
+            int columnIndex = int.Parse(Console.ReadLine());
+            int[,] array = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            int sum = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                sum += array[i, columnIndex];
+            }
+            Console.WriteLine($"Sum of elements in column {columnIndex} is {sum}");
+        }
     }
 }
