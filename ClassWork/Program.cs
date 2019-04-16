@@ -260,5 +260,36 @@ namespace ClassWork
             }
             return array;
         }
+
+        private static void Task9()
+        {
+            Console.Write("Enter index move from: ");
+            int fromIndex = int.Parse(Console.ReadLine());
+            Console.Write("Enter index move to: ");
+            int toIndex = int.Parse(Console.ReadLine());
+            int[,] array = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            Console.WriteLine("Initial array");
+            PrintTwoDimensionalArray(array);
+            for (int i = 0; i < array.GetLength(1); i++)
+            {
+                int tempValue = array[fromIndex, i];
+                array[fromIndex, i] = array[toIndex, i];
+                array[toIndex, i] = tempValue;
+            }
+            Console.WriteLine("Result array");
+            PrintTwoDimensionalArray(array);
+        }
+
+        static void PrintTwoDimensionalArray(int[,] arrayForPrint)
+        {
+            for (int i = 0; i < arrayForPrint.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrayForPrint.GetLength(1); j++)
+                {
+                    Console.Write("{0}\t", arrayForPrint[i, j]);
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
