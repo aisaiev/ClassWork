@@ -177,5 +177,39 @@ namespace ClassWork
             }
             return reversedArray;
         }
+
+        private static int[] SubArray(int[] array, int index, int count)
+        {
+            int[] resultArray = new int[count];
+            if (index == 0 && count > array.Length)
+            {
+                for (int i = index; i < count; i++)
+                {
+                    if (i >= array.Length)
+                    {
+                        resultArray[i] = 1;
+                    }
+                    else
+                    {
+                        resultArray[i] = array[i];
+                    }
+                }
+            }
+            else
+            {
+                for (int i = index; i < count + index; i++)
+                {
+                    if (i >= array.Count())
+                    {
+                        resultArray[i - index] = 1;
+                    }
+                    else
+                    {
+                        resultArray[i - index] = array[i];
+                    }
+                }
+            }
+            return resultArray;
+        }
     }
 }
