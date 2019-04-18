@@ -71,5 +71,21 @@ namespace ClassWork
                 Console.WriteLine(strArray[i]);
             }
         }
+
+        private static void Task8(string str)
+        {
+            string[] strArray = str.Split(' ');
+            int maxWordLength = 0;
+            int minWordLength = int.MaxValue;
+            foreach (var item in strArray)
+            {
+                if (item.Length > maxWordLength)
+                    maxWordLength = item.Length;
+                if (item.Length < minWordLength)
+                    minWordLength = item.Length;
+            }
+            Console.WriteLine($"Max word length: {maxWordLength}");
+            Console.WriteLine($"Min word length: {minWordLength}");
+        }
     }
 }
