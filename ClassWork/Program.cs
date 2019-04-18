@@ -10,7 +10,6 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
-
         }
 
         private static int Task2(string lineString, char symbol)
@@ -24,6 +23,11 @@ namespace ClassWork
                 }
             }
             return count;
+        }
+
+        private static string Task3(string initialString, string stringToInsert, int index)
+        {
+            return initialString.Insert(index, stringToInsert);
         }
     }
 }
