@@ -56,5 +56,11 @@ namespace ClassWork
             }
             Console.WriteLine(str); ;
         }
+
+        private static void Task6(string str, int position)
+        {
+            string[] strArray = str.Split(' ');
+            Console.WriteLine(strArray[position - 1][0]);
+        }
     }
 }
