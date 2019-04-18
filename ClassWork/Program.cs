@@ -45,5 +45,16 @@ namespace ClassWork
             }
             Console.WriteLine(str);
         }
+
+        private static void Task5(string str)
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == ' ')
+                    if (str[i + 1] == ' ')
+                        str = str.Remove(i + 1, 1);
+            }
+            Console.WriteLine(str); ;
+        }
     }
 }
