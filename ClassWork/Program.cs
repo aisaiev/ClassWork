@@ -10,7 +10,7 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
-            Task1.Calculate();
+            Task2.PerfromCurrencyConvertation();
         }
     }
 }
