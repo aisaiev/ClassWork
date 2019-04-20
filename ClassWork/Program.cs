@@ -87,5 +87,24 @@ namespace ClassWork
             Console.WriteLine($"Max word length: {maxWordLength}");
             Console.WriteLine($"Min word length: {minWordLength}");
         }
+
+        private static void Task1()
+        {
+            string str = "hello world qwerty";
+            for (int i = 0; i < str.Length; i++)
+            {
+                for (int j = i; j < str.Length; j++)
+                {
+                    if (j != str.Length - 1)
+                    {
+                        if (str[i] == str[j + 1])
+                        {
+                            str = str.Remove(j + 1, 1);
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(str);
+        }
     }
 }
