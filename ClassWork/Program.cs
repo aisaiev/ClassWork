@@ -10,9 +10,6 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Task3.ValidatePin("1234"));
-            Console.WriteLine(Task3.ValidatePin("12345"));
-            Console.WriteLine(Task3.ValidatePin("a234"));
         }
     }
 }
