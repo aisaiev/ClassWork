@@ -10,7 +10,9 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
-            Task2.PerfromCurrencyConvertation();
+            Console.WriteLine(Task3.ValidatePin("1234"));
+            Console.WriteLine(Task3.ValidatePin("12345"));
+            Console.WriteLine(Task3.ValidatePin("a234"));
         }
     }
 }
