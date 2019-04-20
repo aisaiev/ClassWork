@@ -10,32 +10,48 @@ namespace ClassWork
     {
         public static void Calculate()
         {
-            Console.Write("Enter the first number: ");
-            double firstNumber = double.Parse(Console.ReadLine());
-            Console.Write("Enter the second number: ");
-            double secondNumber = double.Parse(Console.ReadLine());
-            bool isOperationValid = false;
+            Tuple<double, double, char> userInput =  AskUserForInput();
+            PrintResult(PerformMathCalcualtion(userInput.Item1, userInput.Item2, userInput.Item3));
+        }
 
+        private static Tuple<double, double, char> AskUserForInput()
+        {
+            double firstNumber = 0;
+            double secondNumber = 0;
+            char operation = ' ';
+            bool isFirstNumberValid = false;
+            bool isSecondNumberValid = false;
+            bool isOperationValid = false;
+            while (!isFirstNumberValid)
+            {
+                Console.Write("Enter the first number: ");
+                isFirstNumberValid = double.TryParse(Console.ReadLine(), out firstNumber);
+            }
+            while (!isSecondNumberValid)
+            {
+                Console.Write("Enter the first number: ");
+                isSecondNumberValid = double.TryParse(Console.ReadLine(), out secondNumber);
+            }
             while (!isOperationValid)
             {
                 Console.Write("Enter operation [+ - * /]: ");
                 string sign = Console.ReadLine();
-                switch (sign)
+                switch (sign[0])
                 {
-                    case "+":
-                        Add(firstNumber, secondNumber);
+                    case '+':
+                        operation = '+';
                         isOperationValid = true;
                         break;
-                    case "-":
-                        Sub(firstNumber, secondNumber);
+                    case '-':
+                        operation = '-';
                         isOperationValid = true;
                         break;
-                    case "*":
-                        Mul(firstNumber, secondNumber);
+                    case '*':
+                        operation = '*';
                         isOperationValid = true;
                         break;
-                    case "/":
-                        Div(firstNumber, secondNumber);
+                    case '/':
+                        operation = '/';
                         isOperationValid = true;
                         break;
                     default:
@@ -44,33 +60,54 @@ namespace ClassWork
                         break;
                 }
             }
+
+            return Tuple.Create(firstNumber, secondNumber, operation);
         }
 
-        private static void Add(double firstNumber, double secondNumber)
+        private static double Add(double firstNumber, double secondNumber)
         {
-            Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}");
+            return firstNumber + secondNumber;
         }
 
-        private static void Sub(double firstNumber, double secondNumber)
+        private static double Sub(double firstNumber, double secondNumber)
         {
-            Console.WriteLine($"{firstNumber} - {secondNumber} = {firstNumber - secondNumber}");
+            return firstNumber - secondNumber;
         }
 
-        private static void Mul(double firstNumber, double secondNumber)
+        private static double Mul(double firstNumber, double secondNumber)
         {
-            Console.WriteLine($"{firstNumber} * {secondNumber} = {firstNumber * secondNumber}");
+            return firstNumber * secondNumber;
         }
 
-        private static void Div(double firstNumber, double secondNumber)
+        private static double Div(double firstNumber, double secondNumber)
         {
-            if (secondNumber != 0)
+            return firstNumber / secondNumber;
+        }
+
+        private static double PerformMathCalcualtion(double firstNumber, double secondNumber, char mathOperation)
+        {
+            double result = 0;
+            switch (mathOperation)
             {
-                Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}");
+                case '+':
+                    result = Add(firstNumber, secondNumber);
+                    break;
+                case '-':
+                    result = Sub(firstNumber, secondNumber);
+                    break;
+                case '*':
+                    result = Mul(firstNumber, secondNumber);
+                    break;
+                case '/':
+                    result = Div(firstNumber, secondNumber);
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Error: divide by zero operation");
-            }
+            return result;
+        }
+
+        private static void PrintResult(double result)
+        {
+            Console.WriteLine($"Result of the operation: {result}");
         }
     }
 }
