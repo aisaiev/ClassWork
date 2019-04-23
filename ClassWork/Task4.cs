@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClassWork
 {
-    public static class Task3
+    public static class Task4
     {
         public static bool ValidatePin(string pin)
         {
