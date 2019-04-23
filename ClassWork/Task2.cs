@@ -19,9 +19,9 @@ namespace ClassWork
             PrintResult(CalculateCurrencyExchange(tuple.Item1, tuple.Item2, tuple.Item3));
         }
 
-        public static async Task DownloadCurrencyExchange()
+        private static async Task DownloadCurrencyExchange()
         {
-            string url = $"https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
+            string url = $"https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=3";
 
             using (var httpClient = new HttpClient())
             {
@@ -53,10 +53,10 @@ namespace ClassWork
                 {
                     case "USD":
                         baseCurrency = currencies.Find(x => x.Ccy == "USD");
-                        return amountOfMoney / double.Parse(baseCurrency.Sale);
+                        return amountOfMoney * double.Parse(baseCurrency.Sale);
                     case "EUR":
                         baseCurrency = currencies.Find(x => x.Ccy == "EUR");
-                        return amountOfMoney / double.Parse(baseCurrency.Sale);
+                        return amountOfMoney * double.Parse(baseCurrency.Sale);
                     default:
                         return 0;
                 }
