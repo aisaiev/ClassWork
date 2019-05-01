@@ -11,7 +11,6 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
-            ColorHandler.Print("test string", (int)Color.White);
         }
     }
 }
