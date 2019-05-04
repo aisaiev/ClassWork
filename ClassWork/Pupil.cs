@@ -12,17 +12,15 @@ namespace ClassWork
         public int yearOfBirth;
         public string firstName;
         public string lastName;
-        public string school;
-        public string grade;
+        public string School { get; set; }
+        public string Grade { get; set; }
 
-        public Pupil(string firstName, string lastName, int yearOfBirth, string school = "Hogwarts", string grade = "1-A")
+        public Pupil(string firstName, string lastName, int yearOfBirth)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.yearOfBirth = yearOfBirth;
-            this.age = CalculateAgeFromYearOfBirth(yearOfBirth);
-            this.school = school;
-            this.grade = grade;
+            age = CalculateAgeFromYearOfBirth(yearOfBirth);
         }
 
         private int CalculateAgeFromYearOfBirth(int yearOfBirth)
@@ -44,7 +42,7 @@ namespace ClassWork
             Console.WriteLine(string.Format("{0,10} {1,7} {2,5} {3,7} {4,7}\n\n", "Имя", "Год рожд.", "Возраст", "Школа", "Класс"));
             foreach (var item in pupils)
             {
-                Console.WriteLine(string.Format("{0,10} {1,7} {2,5} {3,7} {4,7}\n\n", item.lastName + ' ' + item.firstName, item.yearOfBirth, item.age, item.school, item.grade));
+                Console.WriteLine(string.Format("{0,10} {1,7} {2,5} {3,7} {4,7}\n\n", item.lastName + ' ' + item.firstName, item.yearOfBirth, item.age, item.School, item.Grade));
             }
         }
     }
