@@ -27,18 +27,7 @@ namespace ClassWork
 
             foreach (var figure in figures)
             {
-                if (figure is Square square)
-                {
-                    square.Draw();
-                }
-                else if (figure is Circle circle)
-                {
-                    circle.Draw();
-                }
-                else if (figure is Triangle triangle)
-                {
-                    triangle.Draw();
-                }
+                figure.Draw();
             }
         }
     }

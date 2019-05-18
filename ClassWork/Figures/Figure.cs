@@ -42,7 +42,7 @@ namespace ClassWork
             this.Y = y;
         }
 
-        public void Draw()
+        public virtual void Draw()
         {
             Console.WriteLine($"{this.GetType().Name} was drawn with: x={this.X}, y={this.Y}");
         }

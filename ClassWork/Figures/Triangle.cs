@@ -79,7 +79,7 @@ namespace ClassWork.Figures
             this.ThirdSide = thirdSide;
         }
 
-        public new void Draw()
+        public override void Draw()
         {
             Console.WriteLine($"{this.GetType().Name} was drawn with: x={this.X}, y={this.Y}, firstSide={this.firstSide}, secondSide={this.secondSide}, thirdSide={this.thirdSide}");
         }

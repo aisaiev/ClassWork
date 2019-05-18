@@ -35,7 +35,7 @@ namespace ClassWork.Figures
             this.Radius = radius;
         }
 
-        public new void Draw()
+        public override void Draw()
         {
             Console.WriteLine($"{this.GetType().Name} was drawn with: x={this.X}, y={this.Y}, radius={this.Radius}");
         }
