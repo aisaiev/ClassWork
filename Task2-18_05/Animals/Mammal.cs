@@ -20,7 +20,7 @@ namespace Task2_18_05.Animals
             {
                 return age;
             }
-            set
+            protected internal set
             {
                 if (value > 0)
                 {
@@ -39,7 +39,7 @@ namespace Task2_18_05.Animals
             {
                 return weight;
             }
-            set
+            protected internal set
             {
                 if (value > 0)
                 {
@@ -58,7 +58,7 @@ namespace Task2_18_05.Animals
             {
                 return foodAmount;
             }
-            set
+            protected internal set
             {
                 if (value > 0)
                 {
