@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassWork.Figures
 {
-    internal class Square : Figure
+    public class Square : Figure
     {
         private int side;
 
@@ -20,11 +20,11 @@ namespace ClassWork.Figures
             {
                 if (value > 0)
                 {
-                    side = value;
+                    this.side = value;
                 }
                 else
                 {
-                    side = 1;
+                    this.side = 1;
                 }
             }
         }

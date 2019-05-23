@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassWork.Figures
 {
-    internal class Circle : Figure
+    public class Circle : Figure
     {
         private int radius;
 
@@ -14,17 +14,17 @@ namespace ClassWork.Figures
         {
             get
             {
-                return radius;
+                return this.radius;
             }
             set
             {
                 if (value > 0)
                 {
-                    radius = value;
+                    this.radius = value;
                 }
                 else
                 {
-                    radius = 1;
+                    this.radius = 1;
                 }
             }
         }

@@ -16,11 +16,11 @@ namespace ClassWork
         {
             get
             {
-                return x;
+                return this.x;
             }
             set
             {
-                x = value;
+                this.x = value;
             }
         }
 
@@ -28,11 +28,11 @@ namespace ClassWork
         {
             get
             {
-                return y;
+                return this.y;
             }
             set
             {
-                y = value;
+                this.y = value;
             }
         }
 

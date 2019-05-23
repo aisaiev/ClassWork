@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassWork.Figures
 {
-    internal class Triangle : Figure
+    public class Triangle : Figure
     {
         private int firstSide;
 
@@ -18,18 +18,11 @@ namespace ClassWork.Figures
         {
             get
             {
-                return firstSide;
+                return this.firstSide;
             }
             set
             {
-                if (value > 0)
-                {
-                    firstSide = value;
-                }
-                else
-                {
-                    firstSide = 1;
-                }
+                this.firstSide = ValidateTriangleSide(value);
             }
         }
 
@@ -37,18 +30,11 @@ namespace ClassWork.Figures
         {
             get
             {
-                return secondSide;
+                return this.secondSide;
             }
             set
             {
-                if (value > 0)
-                {
-                    secondSide = value;
-                }
-                else
-                {
-                    secondSide = 1;
-                }
+                this.secondSide = ValidateTriangleSide(value);
             }
         }
 
@@ -56,18 +42,11 @@ namespace ClassWork.Figures
         {
             get
             {
-                return thirdSide;
+                return this.thirdSide;
             }
             set
             {
-                if (value > 0)
-                {
-                    thirdSide = value;
-                }
-                else
-                {
-                    thirdSide = 1;
-                }
+                this.thirdSide = ValidateTriangleSide(value);
             }
         }
 
@@ -82,6 +61,18 @@ namespace ClassWork.Figures
         public override void Draw()
         {
             Console.WriteLine($"{this.GetType().Name} was drawn with: x={this.X}, y={this.Y}, firstSide={this.firstSide}, secondSide={this.secondSide}, thirdSide={this.thirdSide}");
+        }
+
+        private int ValidateTriangleSide(int side)
+        {
+            if (side > 0)
+            {
+                return side;
+            }
+            else
+            {
+                return 1;
+            }
         }
     }
 }
