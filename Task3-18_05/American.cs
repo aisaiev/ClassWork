@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task3_18_05
 {
-    internal class American : Human
+    public class American : Human
     {
         public override void SayHello()
         {

@@ -6,9 +6,24 @@ using System.Threading.Tasks;
 
 namespace Task3_18_05
 {
-    internal abstract class Human
+    public abstract class Human
     {
-        public string Name { get; set; }
+        private string name;
+
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    this.name = value;
+                }
+            }
+        }
 
         public abstract void SayHello();
     }
