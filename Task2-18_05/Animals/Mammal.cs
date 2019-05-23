@@ -18,17 +18,17 @@ namespace Task2_18_05.Animals
         {
             get
             {
-                return age;
+                return this.age;
             }
             protected internal set
             {
                 if (value > 0)
                 {
-                    age = value;
+                    this.age = value;
                 }
                 else
                 {
-                    age = 1;
+                    this.age = 1;
                 }
             }
         }
@@ -37,17 +37,17 @@ namespace Task2_18_05.Animals
         {
             get
             {
-                return weight;
+                return this.weight;
             }
             protected internal set
             {
                 if (value > 0)
                 {
-                    weight = value;
+                    this.weight = value;
                 }
                 else
                 {
-                    weight = 1;
+                    this.weight = 1;
                 }
             }
         }
@@ -62,11 +62,11 @@ namespace Task2_18_05.Animals
             {
                 if (value > 0)
                 {
-                    foodAmount = value;
+                    this.foodAmount = value;
                 }
                 else
                 {
-                    foodAmount = 1;
+                    this.foodAmount = 1;
                 }
             }
         }
