@@ -10,6 +10,10 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
+            Computer computer = new Computer();
+            Console.WriteLine(computer.ToString());
+            computer.Switch();
+            Console.WriteLine(computer.ToString());
         }
     }
 }
