@@ -27,5 +27,15 @@ namespace ClassWork
             }
             Console.WriteLine($"Total size of directories: {totalSize} bytes");
         }
+
+        static void Task2()
+        {
+            const string FOLDER_PATH = @"C:\Temp";
+            const string FILE_PATH = @"C:\Temp\userText.txt";
+            Console.Write("Enter text: ");
+            string userInput = Console.ReadLine();
+            Directory.CreateDirectory(FOLDER_PATH);
+            File.WriteAllText(FILE_PATH, userInput);
+        }
     }
 }
