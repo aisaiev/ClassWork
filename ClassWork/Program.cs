@@ -37,5 +37,16 @@ namespace ClassWork
             Directory.CreateDirectory(FOLDER_PATH);
             File.WriteAllText(FILE_PATH, userInput);
         }
+
+        static void Task3(string path)
+        {
+            string fileText = File.ReadAllText(path);
+            int lineCount = fileText.Split(new string[] { "\r\n" }, StringSplitOptions.None).Length;
+            int charactercCount = fileText.Replace(" ", "").Replace("\r\n", "").Length;
+            int wordCount = fileText.Replace("\r\n", " ").Split(new string[] { " " }, StringSplitOptions.None).Length;
+            Console.WriteLine($"Line count: {lineCount}");
+            Console.WriteLine($"Characters count: {charactercCount}");
+            Console.WriteLine($"Words count: {wordCount}");
+        }
     }
 }
