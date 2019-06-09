@@ -9,12 +9,12 @@ namespace ClassWork
 {
     class Program
     {
-        static int foldersCount = 0;
-        static void Main(string[] args)
+        private static int foldersCount = 0;
+        private static void Main(string[] args)
         {
         }
 
-        static void FoldersCountByPathRecursion(string path)
+        private static void FoldersCountByPathRecursion(string path)
         {
             try
             {
@@ -29,13 +29,13 @@ namespace ClassWork
             }
         }
 
-        static void Task1()
+        private static void Task1()
         {
-            const string PATH = @"C:\Windows\System32";
+            const string path = @"C:\Windows\System32";
             long totalSize = 0;
-            FoldersCountByPathRecursion(PATH);
+            FoldersCountByPathRecursion(path);
             Console.WriteLine($"Amount of directories: {foldersCount}");
-            string[] files = Directory.GetFiles(PATH);
+            string[] files = Directory.GetFiles(path);
             foreach (var file in files)
             {
                 FileInfo fileInfo = new FileInfo(file);
@@ -44,20 +44,20 @@ namespace ClassWork
             Console.WriteLine($"Total size of directories: {totalSize} bytes");
         }
 
-        static void Task2()
+        private static void Task2()
         {
-            const string FOLDER_PATH = @"C:\Temp";
-            const string FILE_PATH = @"C:\Temp\userText.txt";
+            const string FolderPath = @"C:\Temp";
+            const string FilePath = @"C:\Temp\userText.txt";
             Console.Write("Enter text: ");
             string userInput = Console.ReadLine();
-            if (!Directory.Exists(FOLDER_PATH))
+            if (!Directory.Exists(FolderPath))
             {
-                Directory.CreateDirectory(FOLDER_PATH);
+                Directory.CreateDirectory(FolderPath);
             }
-            File.WriteAllText(FILE_PATH, userInput);
+            File.WriteAllText(FilePath, userInput);
         }
 
-        static void Task3(string path)
+        private static void Task3(string path)
         {
             string fileText = File.ReadAllText(path);
             int lineCount = fileText.Split(new string[] { "\r\n" }, StringSplitOptions.None).Length;
