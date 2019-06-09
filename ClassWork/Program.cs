@@ -9,16 +9,32 @@ namespace ClassWork
 {
     class Program
     {
+        static int foldersCount = 0;
         static void Main(string[] args)
         {
+        }
+
+        static void FoldersCountByPathRecursion(string path)
+        {
+            try
+            {
+                foreach (var folder in Directory.GetDirectories(path))
+                {
+                    foldersCount++;
+                    FoldersCountByPathRecursion(folder);
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+            }
         }
 
         static void Task1()
         {
             const string PATH = @"C:\Windows\System32";
             long totalSize = 0;
-            string[] directories = Directory.GetDirectories(PATH);
-            Console.WriteLine($"Amount of directories: {directories.Length}");
+            FoldersCountByPathRecursion(PATH);
+            Console.WriteLine($"Amount of directories: {foldersCount}");
             string[] files = Directory.GetFiles(PATH);
             foreach (var file in files)
             {
@@ -34,7 +50,10 @@ namespace ClassWork
             const string FILE_PATH = @"C:\Temp\userText.txt";
             Console.Write("Enter text: ");
             string userInput = Console.ReadLine();
-            Directory.CreateDirectory(FOLDER_PATH);
+            if (!Directory.Exists(FOLDER_PATH))
+            {
+                Directory.CreateDirectory(FOLDER_PATH);
+            }
             File.WriteAllText(FILE_PATH, userInput);
         }
 
