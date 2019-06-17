@@ -57,18 +57,5 @@ namespace Task3_15_06
             this.array = new T[1];
             this.Count = 0;
         }
-
-        public bool Contains(T item)
-        {
-            bool contains = false;
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i].Equals(item))
-                {
-                    contains = true;
-                }
-            }
-            return contains;
-        }
     }
 }

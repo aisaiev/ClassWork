@@ -12,6 +12,5 @@ namespace Task3_15_06
         T this[string name] { get; }
         int Count { get; }
         void Clear();
-        bool Contains(T item);
     }
 }
