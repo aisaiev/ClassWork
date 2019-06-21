@@ -14,9 +14,9 @@ namespace Task4_15_06
 
         public void Add(T data)
         {
-            if (headItem == null)
+            if (this.headItem == null)
             {
-                headItem = new Item<T>()
+                this.headItem = new Item<T>()
                 {
                     Data = data,
                     NextItem = null
