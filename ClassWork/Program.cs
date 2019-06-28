@@ -10,6 +10,16 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
+            Helper helper = new Helper();
+            Calculator calculator = new Calculator();
+
+            helper.Execute(calculator.Add);
+
+            helper.Execute(calculator.Multiply);
+
+            helper.Execute(calculator.Divide);
+
+            helper.Execute(calculator.Substruct);
         }
     }
 }
