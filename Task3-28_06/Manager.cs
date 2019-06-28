@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Task3_28_06
 {
-    class Manager
+    public class Manager
     {
-        //
-        // The first part.
-        //
         private List<Student> studentsList;
 
         public Manager()

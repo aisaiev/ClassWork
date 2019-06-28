@@ -78,8 +78,9 @@ namespace Task4_28_06
 
         public int CourseNumber { get; private set; }
 
-        public Queue<string> tasks;
-        public Stack<string> books;
+        public Queue<string> Tasks { get; set; }
+
+        public Stack<string> Books { get; set; }
 
         public Student(string firstName, string lastName, int courseNumber, string group, string faculty)
         {
@@ -88,24 +89,24 @@ namespace Task4_28_06
             this.CourseNumber = courseNumber;
             this.Group = group;
             this.faculty = faculty;
-            this.tasks = new Queue<string>();
-            this.books = new Stack<string>();
+            this.Tasks = new Queue<string>();
+            this.Books = new Stack<string>();
         }
 
         public void ResolveTask()
         {
-            Console.WriteLine($"Task '{tasks.Peek()}' has been done");
-            this.tasks.Dequeue();
+            Console.WriteLine($"Task '{this.Tasks.Peek()}' has been done");
+            this.Tasks.Dequeue();
         }
 
         public void GetBookFromLibrary(Library library)
         {
-            this.books.Push(library.GiveBook());
+            this.Books.Push(library.GiveBook());
         }
 
         public void GiveBookToLibrary(Library library)
         {
-            library.GetBook(this.books.Pop());
+            library.GetBook(this.Books.Pop());
         }
     }
 }

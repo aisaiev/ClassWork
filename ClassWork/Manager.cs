@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClassWork
 {
-    class Manager
+    public class Manager
     {
         //
         // The first part.

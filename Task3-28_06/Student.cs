@@ -78,7 +78,7 @@ namespace Task3_28_06
 
         public int CourseNumber { get; private set; }
 
-        public Queue<string> tasks;
+        public Queue<string> Tasks { get; set; }
 
         public Student(string firstName, string lastName, int courseNumber, string group, string faculty)
         {
@@ -87,13 +87,13 @@ namespace Task3_28_06
             this.CourseNumber = courseNumber;
             this.Group = group;
             this.faculty = faculty;
-            this.tasks = new Queue<string>();
+            this.Tasks = new Queue<string>();
         }
 
         public void ResolveTask()
         {
-            Console.WriteLine($"Task '{tasks.Peek()}' has been done");
-            tasks.Dequeue();
+            Console.WriteLine($"Task '{this.Tasks.Peek()}' has been done");
+            this.Tasks.Dequeue();
         }
     }
 }
