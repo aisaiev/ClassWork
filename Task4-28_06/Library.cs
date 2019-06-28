@@ -8,9 +8,17 @@ namespace Task4_28_06
 {
     public class Library
     {
-        public void GiveBook()
+        public string GiveBook()
         {
-            Console.WriteLine("Student took the book");
+            Random rnd = new Random();
+            string book = $"Book_{rnd.Next(1, 101)}";
+            Console.WriteLine($"Student took the book '{book}'");
+            return book;
+        }
+
+        public void GetBook(string book)
+        {
+            Console.WriteLine($"'{book}' returned to the library");
         }
     }
 }

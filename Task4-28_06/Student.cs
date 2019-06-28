@@ -79,6 +79,7 @@ namespace Task4_28_06
         public int CourseNumber { get; private set; }
 
         public Queue<string> tasks;
+        public Stack<string> books;
 
         public Student(string firstName, string lastName, int courseNumber, string group, string faculty)
         {
@@ -88,17 +89,23 @@ namespace Task4_28_06
             this.Group = group;
             this.faculty = faculty;
             this.tasks = new Queue<string>();
+            this.books = new Stack<string>();
         }
 
         public void ResolveTask()
         {
             Console.WriteLine($"Task '{tasks.Peek()}' has been done");
-            tasks.Dequeue();
+            this.tasks.Dequeue();
         }
 
         public void GetBookFromLibrary(Library library)
         {
-            library.GiveBook();
+            this.books.Push(library.GiveBook());
+        }
+
+        public void GiveBookToLibrary(Library library)
+        {
+            library.GetBook(this.books.Pop());
         }
     }
 }
