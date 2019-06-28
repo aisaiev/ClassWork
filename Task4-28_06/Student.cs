@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task3_28_06
+namespace Task4_28_06
 {
     public class Student
     {
@@ -94,6 +94,11 @@ namespace Task3_28_06
         {
             Console.WriteLine($"Task '{tasks.Peek()}' has been done");
             tasks.Dequeue();
+        }
+
+        public void GetBookFromLibrary(Library library)
+        {
+            library.GiveBook();
         }
     }
 }
