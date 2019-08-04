@@ -8,9 +8,9 @@ namespace ClassWork
 {
     public class User
     {
-        private FridgeEventArgs fridge;
+        private Fridge fridge;
 
-        public User(FridgeEventArgs fridge)
+        public User(Fridge fridge)
         {
             this.fridge = fridge;
             this.fridge.FridgeEvent += this.fridge.PrintFridgeState;

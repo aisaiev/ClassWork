@@ -10,7 +10,7 @@ namespace ClassWork
     {
         static void Main(string[] args)
         {
-            new User(new FridgeEventArgs()).Run();
+            new User(new Fridge()).Run();
         }
     }
 }

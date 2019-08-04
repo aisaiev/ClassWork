@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClassWork
 {
-    public class FridgeEventArgs : EventArgs
+    public class Fridge
     {
         public FridgeState FridgeState { get; private set; }
 
@@ -15,9 +15,7 @@ namespace ClassWork
 
         public SecondaryDoorState SecondaryDoorState { get; private set; }
 
-        public delegate void FridgeStateHandler(string state);
-
-        public event FridgeStateHandler FridgeEvent;
+        public event EventHandler<FridgeEventArgs> FridgeEvent;
 
         public void OnChangeFridgeState()
         {
@@ -29,8 +27,8 @@ namespace ClassWork
             {
                 this.FridgeState = FridgeState.OFF;
             }
-            this.FridgeEvent(GetFridgeState());
-            this.FridgeEvent(GetSummaryFridgeState());
+            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetFridgeState()));
+            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetSummaryFridgeState()));
         }
 
         public void OnChangeMainDoorState()
@@ -43,8 +41,8 @@ namespace ClassWork
             {
                 this.MainDoorState = MainDoorState.CLOSED;
             }
-            this.FridgeEvent(GetFridgeMainDoorState());
-            this.FridgeEvent(GetSummaryFridgeState());
+            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetFridgeMainDoorState()));
+            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetSummaryFridgeState()));
         }
 
         public void OnChangeSecondaryDoorState()
@@ -57,8 +55,8 @@ namespace ClassWork
             {
                 this.SecondaryDoorState = SecondaryDoorState.CLOSED;
             }
-            this.FridgeEvent(GetFridgeSecondaryDoorState());
-            this.FridgeEvent(GetSummaryFridgeState());
+            this.FridgeEvent(this, new FridgeEventArgs(this.GetFridgeSecondaryDoorState()));
+            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetSummaryFridgeState()));
         }
 
         private string GetFridgeState()
@@ -81,9 +79,9 @@ namespace ClassWork
             return $"FridgeState: {this.FridgeState} MainDoorState: {this.MainDoorState} SecondaryDoorState: {this.SecondaryDoorState}";
         }
 
-        public void PrintFridgeState(string state)
+        public void PrintFridgeState(object sender, FridgeEventArgs e)
         {
-            Console.WriteLine(state);
+            Console.WriteLine(e.State);
         }
     }
 }
