@@ -11,52 +11,59 @@ namespace ClassWork
     {
         public FridgeState FridgeState { get; private set; }
 
-        public MainDoorState MainDoorState { get; private set; }
+        public DoorState MainDoorState { get; private set; }
 
-        public SecondaryDoorState SecondaryDoorState { get; private set; }
+        public DoorState SecondaryDoorState { get; private set; }
+
+        public string ChangedState { get; set; }
 
         public event EventHandler<FridgeEventArgs> FridgeEvent;
 
-        public void OnChangeFridgeState()
+        public void ChangeFridgeState()
         {
-            if (this.FridgeState == FridgeState.OFF)
+            if (this.FridgeState == FridgeState.Off)
             {
-                this.FridgeState = FridgeState.ON;
+                this.FridgeState = FridgeState.On;
             }
             else
             {
-                this.FridgeState = FridgeState.OFF;
+                this.FridgeState = FridgeState.Off;
             }
-            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetFridgeState()));
-            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetSummaryFridgeState()));
+            this.ChangedState = this.GetFridgeState();
+            this.OnFridgeEvent();
         }
 
-        public void OnChangeMainDoorState()
+        public void ChangeMainDoorState()
         {
-            if (this.MainDoorState == MainDoorState.CLOSED)
+            if (this.MainDoorState == DoorState.Closed)
             {
-                this.MainDoorState = MainDoorState.OPENED;
+                this.MainDoorState = DoorState.Opened;
             }
             else
             {
-                this.MainDoorState = MainDoorState.CLOSED;
+                this.MainDoorState = DoorState.Closed;
             }
-            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetFridgeMainDoorState()));
-            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetSummaryFridgeState()));
+            this.ChangedState = this.GetFridgeMainDoorState();
+            this.OnFridgeEvent();
         }
 
-        public void OnChangeSecondaryDoorState()
+        public void ChangeSecondaryDoorState()
         {
-            if (this.SecondaryDoorState == SecondaryDoorState.CLOSED)
+            if (this.SecondaryDoorState == DoorState.Closed)
             {
-                this.SecondaryDoorState = SecondaryDoorState.OPENED;
+                this.SecondaryDoorState = DoorState.Opened;
             }
             else
             {
-                this.SecondaryDoorState = SecondaryDoorState.CLOSED;
+                this.SecondaryDoorState = DoorState.Closed;
             }
-            this.FridgeEvent(this, new FridgeEventArgs(this.GetFridgeSecondaryDoorState()));
-            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.GetSummaryFridgeState()));
+            this.ChangedState = this.GetFridgeSecondaryDoorState();
+            this.OnFridgeEvent();
+        }
+
+        protected virtual void OnFridgeEvent()
+        {
+            this.FridgeEvent?.Invoke(this, new FridgeEventArgs(this.FridgeState, this.MainDoorState, this.SecondaryDoorState, this.ChangedState));
         }
 
         private string GetFridgeState()
@@ -72,16 +79,6 @@ namespace ClassWork
         private string GetFridgeSecondaryDoorState()
         {
             return $"MainDoorState: {this.SecondaryDoorState}";
-        }
-
-        private string GetSummaryFridgeState()
-        {
-            return $"FridgeState: {this.FridgeState} MainDoorState: {this.MainDoorState} SecondaryDoorState: {this.SecondaryDoorState}";
-        }
-
-        public void PrintFridgeState(object sender, FridgeEventArgs e)
-        {
-            Console.WriteLine(e.State);
         }
     }
 }

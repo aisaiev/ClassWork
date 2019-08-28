@@ -13,27 +13,43 @@ namespace ClassWork
         public User(Fridge fridge)
         {
             this.fridge = fridge;
-            this.fridge.FridgeEvent += this.fridge.PrintFridgeState;
+            this.fridge.FridgeEvent += this.PrintFridgeState;
         }
 
-        public void ChangeFridgeState()
+        private void PrintFridgeState(object sender, FridgeEventArgs e)
         {
-            this.fridge?.OnChangeFridgeState();
-        }
-        public void ChangeFridgeMainDoorState()
-        {
-            this.fridge?.OnChangeMainDoorState();
-        }
-        public void ChangeFridgeSecondaryDoorState()
-        {
-            this.fridge?.OnChangeSecondaryDoorState();
+            Console.WriteLine(e.ToString());
         }
 
         public void Run()
         {
-            ChangeFridgeState();
-            ChangeFridgeMainDoorState();
-            ChangeFridgeSecondaryDoorState();
+            Console.WriteLine($"1 - On/Off Fridge{Environment.NewLine}2 - Open/Close Main Door{Environment.NewLine}3 - Open/Close Secondary Door");
+            do
+            {
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        {
+                            this.fridge?.ChangeFridgeState();
+                        }
+                        break;
+                    case "2":
+                        {
+                            this.fridge?.ChangeMainDoorState();
+                        }
+                        break;
+                    case "3":
+                        {
+                            this.fridge?.ChangeSecondaryDoorState();
+                        }
+                        break;
+                    default:
+                        {
+                            Console.WriteLine("Option isn't available");
+                        }
+                        break;
+                }
+            } while (true);
         }
     }
 }

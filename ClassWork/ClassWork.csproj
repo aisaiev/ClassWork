@@ -43,8 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\MainDoorState.cs" />
-    <Compile Include="Enums\SecondaryDoorState.cs" />
+    <Compile Include="Enums\DoorState.cs" />
     <Compile Include="Enums\FridgeState.cs" />
     <Compile Include="Fridge.cs" />
     <Compile Include="FridgeEventArgs.cs" />

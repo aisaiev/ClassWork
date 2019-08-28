@@ -9,17 +9,25 @@ namespace ClassWork
 {
     public class FridgeEventArgs : EventArgs
     {
-        public FridgeState FridgeState { get; set; }
+        public FridgeState FridgeState { get; private set; }
 
-        public MainDoorState MainDoorState { get; set; }
+        public DoorState MainDoorState { get; private set; }
 
-        public SecondaryDoorState SecondaryDoorState { get; set; }
+        public DoorState SecondaryDoorState { get; private set; }
 
-        public string State { get; set; }
+        public string ChangedState { get; private set; }
 
-        public FridgeEventArgs(string state)
+        public FridgeEventArgs(FridgeState fridgeState, DoorState mainDoorState, DoorState secondaryDoorState, string changedState)
         {
-            this.State = state;
+            this.FridgeState = fridgeState;
+            this.MainDoorState = mainDoorState;
+            this.SecondaryDoorState = secondaryDoorState;
+            this.ChangedState = changedState;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.ChangedState}{Environment.NewLine}FridgeState: {this.FridgeState} MainDoorState: {this.MainDoorState} SecondaryDoorState: {this.SecondaryDoorState}";
         }
     }
 }

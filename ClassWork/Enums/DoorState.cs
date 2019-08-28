@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ClassWork.Enums
 {
-    public enum SecondaryDoorState
+    public enum DoorState
     {
-        OPENED = 1,
-        CLOSED = 0
+        Closed = 0,
+        Opened = 1
     }
 }

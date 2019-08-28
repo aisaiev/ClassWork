@@ -8,7 +8,7 @@ namespace ClassWork.Enums
 {
     public enum FridgeState
     {
-        ON = 1,
-        OFF = 0
+        Off = 0,
+        On = 1
     }
 }
