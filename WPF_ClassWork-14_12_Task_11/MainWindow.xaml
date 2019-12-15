@@ -1,0 +1,44 @@
+﻿<Window x:Class="WPF_ClassWork_14_12_Task_11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_ClassWork_14_12_Task_11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Column="0" Grid.Row="0">
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/peugeot_308.png" Margin="0, 20, 0, 0"></Image>
+                    <TextBlock>Peugeot 308</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/peugeot_301.png" Margin="0, 20, 0, 0"></Image>
+                    <TextBlock>Peugeot 301</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/peugeot_508.png" Margin="0, 20, 0, 0"></Image>
+                    <TextBlock>Peugeot 508</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/peugeot_3008.png" Margin="0, 20, 0, 0"></Image>
+                    <TextBlock>Peugeot 3008</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</Window>
