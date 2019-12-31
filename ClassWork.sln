@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassWork", "ClassWork\Clas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_ClassWork-28_12", "WPF_ClassWork-28_12\WPF_ClassWork-28_12.csproj", "{1AC04002-B3A0-4C22-AB62-9E420DF5DD05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_ClassWork-28_12_Task_2", "WPF_ClassWork-28_12_Task_2\WPF_ClassWork-28_12_Task_2.csproj", "{D0D913AB-8901-4FDB-AFEF-CE011928C25C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1AC04002-B3A0-4C22-AB62-9E420DF5DD05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AC04002-B3A0-4C22-AB62-9E420DF5DD05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AC04002-B3A0-4C22-AB62-9E420DF5DD05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D913AB-8901-4FDB-AFEF-CE011928C25C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D913AB-8901-4FDB-AFEF-CE011928C25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D913AB-8901-4FDB-AFEF-CE011928C25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D913AB-8901-4FDB-AFEF-CE011928C25C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
