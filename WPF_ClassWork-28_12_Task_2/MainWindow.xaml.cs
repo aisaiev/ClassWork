@@ -33,11 +33,11 @@ namespace WPF_ClassWork_28_12_Task_2
 
             CommandBinding deleteCommandBinding = new CommandBinding(ApplicationCommands.Delete);
             deleteCommandBinding.Executed += DeleteCommandBinding_Executed;
-            deleteCommandBinding.CanExecute += DeleteCommandBinding_CanExecute;
+            deleteCommandBinding.CanExecute += ShowDeleteCommandBinding_CanExecute;
 
             CommandBinding showCommandBinding = new CommandBinding(MyCommand.Show);
             showCommandBinding.Executed += ShowCommandBinding_Executed;
-            showCommandBinding.CanExecute += ShowCommandBinding_CanExecute;
+            showCommandBinding.CanExecute += ShowDeleteCommandBinding_CanExecute;
 
             this.CommandBindings.Add(newCommandBinding);
             this.CommandBindings.Add(deleteCommandBinding);
@@ -60,7 +60,7 @@ namespace WPF_ClassWork_28_12_Task_2
             this.MyDataGrid.ItemsSource = employees;
         }
 
-        private void ShowCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void ShowDeleteCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             if (this.MyDataGrid.SelectedItem == null)
             {
@@ -76,17 +76,6 @@ namespace WPF_ClassWork_28_12_Task_2
         {
             Debug.WriteLine("ShowCommand executed");
             new EmployeeInfoWindow() { DataContext = this.MyDataGrid.SelectedItem }.Show();
-        }
-
-        private void DeleteCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            if (this.MyDataGrid.SelectedItem == null)
-            {
-                e.CanExecute = false;
-            } else
-            {
-                e.CanExecute = true;
-            }
         }
 
         private void DeleteCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
