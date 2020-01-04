@@ -22,7 +22,7 @@ namespace WPF_ClassWork_28_12_Task_2
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Employee> employees;
+        private ObservableCollection<Employee> employees;
         public MainWindow()
         {
             InitializeComponent();
@@ -95,6 +95,11 @@ namespace WPF_ClassWork_28_12_Task_2
             int maxId = this.employees.Max(x => x.Id);
             this.employees.Add(new Employee(++maxId, null, null, DateTime.Now, false));
             this.MyDataGrid.SelectedIndex = this.MyDataGrid.Items.Count - 1;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new EmployeeCreationWindow() { DataContext = this.employees }.Show();
         }
     }
 }

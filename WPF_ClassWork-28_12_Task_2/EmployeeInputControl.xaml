@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="WPF_ClassWork_28_12_Task_2.EmployeeInputControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_ClassWork_28_12_Task_2"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"></RowDefinition>
+            <RowDefinition Height="1.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="NameStackPanel" Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+            <Grid Width="{Binding ActualWidth , ElementName=NameStackPanel}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Content="_Name" Margin="10"></Label>
+                <TextBox Grid.Column="1" Grid.Row="0" Margin="10" Text="{Binding Name}" x:Name="EmployeeNameTextBox"></TextBox>
+            </Grid>
+        </StackPanel>
+        <StackPanel x:Name="DepartmentStackPanel" Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+            <Grid Width="{Binding ActualWidth , ElementName=DepartmentStackPanel}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Content="_Department" Margin="10"></Label>
+                <TextBox Grid.Column="1" Grid.Row="0" Margin="10" Text="{Binding Department}" x:Name="EmployeeDepartmentTextBox"></TextBox>
+            </Grid>
+        </StackPanel>
+        <StackPanel x:Name="HireDateStackPanel" Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+            <Grid Width="{Binding ActualWidth , ElementName=HireDateStackPanel}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Content="_Hire date" Margin="10"></Label>
+                <TextBox Grid.Column="1" Grid.Row="0" Margin="10" Text="{Binding HireDate, StringFormat=dd/MM/yyyy}" x:Name="EmployeeHireDateTextBox"></TextBox>
+            </Grid>
+        </StackPanel>
+        <StackPanel x:Name="IsManagerStackPanel" Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+            <CheckBox IsThreeState="False" Margin="10, 15, 0, 0" IsChecked="{Binding IsManager}" x:Name="EmployeeIsManagerCheckBox" Content="_Is manager"></CheckBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

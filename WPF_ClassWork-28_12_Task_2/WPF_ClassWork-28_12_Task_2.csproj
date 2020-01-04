@@ -56,11 +56,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeCreationWindow.xaml.cs">
+      <DependentUpon>EmployeeCreationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeInfoWindow.xaml.cs">
       <DependentUpon>EmployeeInfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeInputControl.xaml.cs">
+      <DependentUpon>EmployeeInputControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyCommand.cs" />
+    <Page Include="EmployeeCreationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EmployeeInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeInputControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
