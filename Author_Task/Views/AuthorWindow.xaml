@@ -1,0 +1,59 @@
+﻿<Window x:Class="Author_Task.Views.AuthorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Author_Task.Views"
+        xmlns:enums="clr-namespace:Author_Task.Enums"
+        xmlns:tools="clr-namespace:Author_Task.Tools"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Author" Height="310" Width="280" ResizeMode="NoResize">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="CountryEnum" MethodName="GetValues"
+                        ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:Country"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="LanguageEnum" MethodName="GetValues"
+                        ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:Language"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <tools:IsNewToTextConverter x:Key="IsNewToTextConverter"></tools:IsNewToTextConverter>
+        <tools:LanguageToColorConverter x:Key="LanguageToColorConverter"></tools:LanguageToColorConverter>
+    </Window.Resources>
+    <Grid Background="{Binding ElementName=LanguageComboBox, Path=SelectedValue, Converter={StaticResource LanguageToColorConverter}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="{Binding Converter={StaticResource IsNewToTextConverter}}"></Label>
+        <Label Grid.Column="0" Grid.Row="1" Content="First name"></Label>
+        <Label Grid.Column="0" Grid.Row="2" Content="Last name"></Label>
+        <Label Grid.Column="0" Grid.Row="3" Content="Birth date"></Label>
+        <Label Grid.Column="0" Grid.Row="4" Content="Country"></Label>
+        <Label Grid.Column="0" Grid.Row="5" Content="Language"></Label>
+        <Label Grid.Column="0" Grid.Row="6" Content="Place of birth"></Label>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="FirstNameTextBox" Margin="5" Text="{Binding Path=FirstName}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="LastNameTextBox" Margin="5" Text="{Binding Path=LastName}"></TextBox>
+        <DatePicker Grid.Column="1" Grid.Row="3" x:Name="BirthDatePicker" Margin="5" SelectedDate="{Binding Path=BirthDate}"></DatePicker>
+        <ComboBox Grid.Column="1" Grid.Row="4" Margin="5" x:Name="CountryComboBox" ItemsSource="{Binding Source={StaticResource CountryEnum}}" SelectedItem="{Binding Path=Country}" Loaded="CountryComboBox_Loaded"></ComboBox>
+        <ComboBox Grid.Column="1" Grid.Row="5" Margin="5" x:Name="LanguageComboBox" ItemsSource="{Binding Source={StaticResource LanguageEnum}}" SelectedItem="{Binding Path=Language}" Loaded="LanguageComboBox_Loaded"></ComboBox>
+        <TextBox Grid.Column="1" Grid.Row="6" x:Name="PlaceOfBirthTextBox" Margin="5" Text="{Binding Path=PlaceOfBirth}"></TextBox>
+        <Button Grid.Column="0" Grid.Row="7" Content="OK" Margin="5" Click="OkButton_Click"></Button>
+        <Button Grid.Column="1" Grid.Row="7" Content="Cancel" Margin="5" Click="CancelButton_Click"></Button>
+    </Grid>
+</Window>

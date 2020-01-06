@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Author_Task.Views.AuthorDetailsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Author_Task.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <GroupBox Header="Details">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Content="First name"></Label>
+            <Label Grid.Column="1" Grid.Row="0" Content="{Binding Path=FirstName}"></Label>
+            <Label Grid.Column="0" Grid.Row="1" Content="Last name"></Label>
+            <Label Grid.Column="1" Grid.Row="1" Content="{Binding Path=LastName}"></Label>
+            <Label Grid.Column="0" Grid.Row="2" Content="Birth date"></Label>
+            <Label Grid.Column="1" Grid.Row="2" Content="{Binding Path=BirthDate}" ContentStringFormat="dd/MM/yyyy"></Label>
+            <Label Grid.Column="3" Grid.Row="0" Content="Country"></Label>
+            <Label Grid.Column="4" Grid.Row="0" Content="{Binding Path=Country}"></Label>
+            <Label Grid.Column="3" Grid.Row="1" Content="Language"></Label>
+            <Label Grid.Column="4" Grid.Row="1" Content="{Binding Path=Language}"></Label>
+            <Label Grid.Column="3" Grid.Row="2" Content="Place of birth"></Label>
+            <Label Grid.Column="4" Grid.Row="2" Content="{Binding Path=PlaceOfBirth}"></Label>
+        </Grid>
+    </GroupBox>
+</UserControl>
