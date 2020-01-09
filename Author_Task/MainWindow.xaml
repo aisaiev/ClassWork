@@ -97,8 +97,8 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Cost" Width="*" Binding="{Binding Path=Cost}"></DataGridTextColumn>
-                <DataGridComboBoxColumn Header="Language" Width="*" ItemsSource="{Binding Source={StaticResource LanguageEnum}}" SelectedItemBinding="{Binding ElementName=AuthorsListView, Path=SelectedItem.Language}"></DataGridComboBoxColumn>
-                <DataGridCheckBoxColumn Header="Read" Width="0.5*"></DataGridCheckBoxColumn>
+                <DataGridComboBoxColumn Header="Language" Width="*" ItemsSource="{Binding Source={StaticResource LanguageEnum}}" SelectedItemBinding="{Binding Path=Language}"></DataGridComboBoxColumn>
+                <DataGridCheckBoxColumn Header="Read" Width="0.5*"  Binding="{Binding Path=IsRead}"></DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Grid.Column="5" Grid.Row="12" Content="New" Margin="5" Command="New" x:Name="NewBookButton">

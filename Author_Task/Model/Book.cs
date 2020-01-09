@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Author_Task.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,10 @@ namespace Author_Task.Model
         public decimal Cost { get; set; }
 
         public DateTime YearOfPublishing { get; set; }
+
+        public Language Language { get; set; }
+
+        public bool IsRead { get; set; }
 
         public Book()
         {
