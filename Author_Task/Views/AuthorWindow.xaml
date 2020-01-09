@@ -50,8 +50,8 @@
         <TextBox Grid.Column="1" Grid.Row="1" x:Name="FirstNameTextBox" Margin="5" Text="{Binding Path=FirstName}"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="2" x:Name="LastNameTextBox" Margin="5" Text="{Binding Path=LastName}"></TextBox>
         <DatePicker Grid.Column="1" Grid.Row="3" x:Name="BirthDatePicker" Margin="5" SelectedDate="{Binding Path=BirthDate}"></DatePicker>
-        <ComboBox Grid.Column="1" Grid.Row="4" Margin="5" x:Name="CountryComboBox" ItemsSource="{Binding Source={StaticResource CountryEnum}}" SelectedItem="{Binding Path=Country}" Loaded="CountryComboBox_Loaded"></ComboBox>
-        <ComboBox Grid.Column="1" Grid.Row="5" Margin="5" x:Name="LanguageComboBox" ItemsSource="{Binding Source={StaticResource LanguageEnum}}" SelectedItem="{Binding Path=Language}" Loaded="LanguageComboBox_Loaded"></ComboBox>
+        <ComboBox Grid.Column="1" Grid.Row="4" Margin="5" x:Name="CountryComboBox" ItemsSource="{Binding Source={StaticResource CountryEnum}}" SelectedItem="{Binding Path=Country}"></ComboBox>
+        <ComboBox Grid.Column="1" Grid.Row="5" Margin="5" x:Name="LanguageComboBox" ItemsSource="{Binding Source={StaticResource LanguageEnum}}" SelectedItem="{Binding Path=Language}"></ComboBox>
         <TextBox Grid.Column="1" Grid.Row="6" x:Name="PlaceOfBirthTextBox" Margin="5" Text="{Binding Path=PlaceOfBirth}"></TextBox>
         <Button Grid.Column="0" Grid.Row="7" Content="OK" Margin="5" Click="OkButton_Click"></Button>
         <Button Grid.Column="1" Grid.Row="7" Content="Cancel" Margin="5" Click="CancelButton_Click"></Button>

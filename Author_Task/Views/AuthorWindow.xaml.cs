@@ -38,23 +38,5 @@ namespace Author_Task.Views
             this.DialogResult = false;
             this.Close();
         }
-
-        private void LanguageComboBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            Author author = this.DataContext as Author;
-            if (author.IsNew)
-            {
-                this.LanguageComboBox.SelectedIndex = -1;
-            }
-        }
-
-        private void CountryComboBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            Author author = this.DataContext as Author;
-            if (author.IsNew)
-            {
-                this.CountryComboBox.SelectedIndex = -1;
-            }
-        }
     }
 }
