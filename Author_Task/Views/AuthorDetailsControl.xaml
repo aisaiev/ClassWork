@@ -25,7 +25,7 @@
             <Label Grid.Column="0" Grid.Row="1" Content="Last name"></Label>
             <Label Grid.Column="1" Grid.Row="1" Content="{Binding Path=LastName}"></Label>
             <Label Grid.Column="0" Grid.Row="2" Content="Birth date"></Label>
-            <Label Grid.Column="1" Grid.Row="2" Content="{Binding Path=BirthDate}" ContentStringFormat="dd/MM/yyyy"></Label>
+            <Label Grid.Column="1" Grid.Row="2" Content="{Binding Path=BirthDate}" ContentStringFormat="M/d/yyyy"></Label>
             <Label Grid.Column="3" Grid.Row="0" Content="Country"></Label>
             <Label Grid.Column="4" Grid.Row="0" Content="{Binding Path=Country}"></Label>
             <Label Grid.Column="3" Grid.Row="1" Content="Language"></Label>
