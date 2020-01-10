@@ -10,11 +10,11 @@ namespace Author_Task
 {
     public static class CustomCommands
     {
-        public static RoutedCommand Change { get; set; }
+        public static RoutedCommand CoreCommand { get; set; }
 
         static CustomCommands()
         {
-            Change = new RoutedCommand(nameof(Change), typeof(Window));
+            CoreCommand = new RoutedCommand(nameof(CoreCommand), typeof(Window));
         }
     }
 }

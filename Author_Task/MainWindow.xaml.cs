@@ -1,22 +1,11 @@
 ﻿using Author_Task.Model;
 using Author_Task.Views;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Author_Task
 {
@@ -30,12 +19,11 @@ namespace Author_Task
         public MainWindow()
         {
             InitializeComponent();
-
             this.authors = new ObservableCollection<Author>();
             this.AuthorsListView.ItemsSource = this.authors;
         }
 
-        private void NewCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void CoreCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Source is Button)
             {
@@ -49,6 +37,22 @@ namespace Author_Task
                     case "NewBookButton":
                         this.CreateBook();
                         Debug.WriteLine("NewBookButton clicked");
+                        break;
+                    case "ChangeAuthorButton":
+                        this.ChangeAuthor();
+                        Debug.WriteLine("ChangeAuthorButton clicked");
+                        break;
+                    case "ChangeBookButton":
+                        this.ChangeBook();
+                        Debug.WriteLine("ChangeBookButton clicked");
+                        break;
+                    case "DeleteAuthorButton":
+                        this.DeleteAuthor();
+                        Debug.WriteLine("DeleteAuthorButton clicked");
+                        break;
+                    case "DeleteBookButton":
+                        this.DeleteBook();
+                        Debug.WriteLine("DeleteBookButton clicked");
                         break;
                 }
             }
@@ -65,32 +69,6 @@ namespace Author_Task
                         this.CreateBook();
                         Debug.WriteLine("NewBookMenuItem clicked");
                         break;
-                }
-            }
-        }
-
-        private void ChangeCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (e.Source is Button)
-            {
-                Button button = e.Source as Button;
-                switch (button.Name)
-                {
-                    case "ChangeAuthorButton":
-                        this.ChangeAuthor();
-                        Debug.WriteLine("ChangeAuthorButton clicked");
-                        break;
-                    case "ChangeBookButton":
-                        this.ChangeBook();
-                        Debug.WriteLine("ChangeBookButton clicked");
-                        break;
-                }
-            }
-            else if (e.Source is MenuItem)
-            {
-                MenuItem menuItem = e.Source as MenuItem;
-                switch (menuItem.Name)
-                {
                     case "ChangeAuthorMenuItem":
                         this.ChangeAuthor();
                         Debug.WriteLine("ChangeAuthorMenuItem clicked");
@@ -99,32 +77,6 @@ namespace Author_Task
                         this.ChangeBook();
                         Debug.WriteLine("ChangeBookMenuItem clicked");
                         break;
-                }
-            }
-        }
-
-        private void DeleteCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (e.Source is Button)
-            {
-                Button button = e.Source as Button;
-                switch (button.Name)
-                {
-                    case "DeleteAuthorButton":
-                        this.DeleteAuthor();
-                        Debug.WriteLine("DeleteAuthorButton clicked");
-                        break;
-                    case "DeleteBookButton":
-                        this.DeleteBook();
-                        Debug.WriteLine("DeleteBookButton clicked");
-                        break;
-                }
-            }
-            else if (e.Source is MenuItem)
-            {
-                MenuItem menuItem = e.Source as MenuItem;
-                switch (menuItem.Name)
-                {
                     case "DeleteAuthorMenuItem":
                         this.DeleteAuthor();
                         Debug.WriteLine("DeleteAuthorMenuItem clicked");
@@ -137,50 +89,18 @@ namespace Author_Task
             }
         }
 
-        private void NewCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            if (e.Source is Button)
-            {
-                Button button = e.Source as Button;
-                if (button.Name == "NewBookButton")
-                {
-                    if (this.AuthorsListView.SelectedItem != null)
-                    {
-                        e.CanExecute = true;
-                    }
-                    else
-                    {
-                        e.CanExecute = false;
-                        return;
-                    }
-                }
-            }
-            else if (e.Source is MenuItem)
-            {
-                MenuItem menuItem = e.Source as MenuItem;
-                if (menuItem.Name == "NewBookMenuItem")
-                {
-                    if (this.AuthorsListView.SelectedItem != null)
-                    {
-                        e.CanExecute = true;
-                    }
-                    else
-                    {
-                        e.CanExecute = false;
-                        return;
-                    }
-                }
-            }
-            e.CanExecute = true;
-        }
-
-        private void DeleteCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void CoreCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             if (e.Source is Button)
             {
                 Button button = e.Source as Button;
                 switch (button.Name)
                 {
+                    case "NewAuthorButton":
+                        e.CanExecute = true;
+                        break;
+                    case "NewBookButton":
+                    case "ChangeAuthorButton":
                     case "DeleteAuthorButton":
                         if (this.AuthorsListView.SelectedItem != null)
                         {
@@ -191,6 +111,7 @@ namespace Author_Task
                             e.CanExecute = false;
                         }
                         break;
+                    case "ChangeBookButton":
                     case "DeleteBookButton":
                         if (this.BooksDataGrid.SelectedItem != null)
                         {
@@ -208,6 +129,11 @@ namespace Author_Task
                 MenuItem menuItem = e.Source as MenuItem;
                 switch (menuItem.Name)
                 {
+                    case "NewAuthorMenuItem":
+                        e.CanExecute = true;
+                        break;
+                    case "NewBookMenuItem":
+                    case "ChangeAuthorMenuItem":
                     case "DeleteAuthorMenuItem":
                         if (this.AuthorsListView.SelectedItem != null)
                         {
@@ -218,65 +144,8 @@ namespace Author_Task
                             e.CanExecute = false;
                         }
                         break;
-                    case "DeleteBookMenuItem":
-                        if (this.BooksDataGrid.SelectedItem != null)
-                        {
-                            e.CanExecute = true;
-                        }
-                        else
-                        {
-                            e.CanExecute = false;
-                        }
-                        break;
-                }
-            }
-        }
-
-        private void ChangeCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            if (e.Source is Button)
-            {
-                Button button = e.Source as Button;
-                switch (button.Name)
-                {
-                    case "ChangeAuthorButton":
-                        if (this.AuthorsListView.SelectedItem != null)
-                        {
-                            e.CanExecute = true;
-                        }
-                        else
-                        {
-                            e.CanExecute = false;
-                        }
-                        break;
-                    case "ChangeBookButton":
-                        if (this.BooksDataGrid.SelectedItem != null)
-                        {
-                            e.CanExecute = true;
-                        }
-                        else
-                        {
-                            e.CanExecute = false;
-                        }
-                        break;
-                }
-            }
-            else if (e.Source is MenuItem)
-            {
-                MenuItem menuItem = e.Source as MenuItem;
-                switch (menuItem.Name)
-                {
-                    case "ChangeAuthorMenuItem":
-                        if (this.AuthorsListView.SelectedItem != null)
-                        {
-                            e.CanExecute = true;
-                        }
-                        else
-                        {
-                            e.CanExecute = false;
-                        }
-                        break;
                     case "ChangeBookMenuItem":
+                    case "DeleteBookMenuItem":
                         if (this.BooksDataGrid.SelectedItem != null)
                         {
                             e.CanExecute = true;
@@ -293,7 +162,7 @@ namespace Author_Task
         private void ShowAuthorWindow(string title, Author author)
         {
             AuthorWindow authorWindow = new AuthorWindow() { Title = title, DataContext = author };
-            if ((bool)authorWindow.ShowDialog())
+            if (authorWindow.ShowDialog().Value)
             {
                 Author authorResult = authorWindow.DataContext as Author;
                 if (author.IsNew)
@@ -303,8 +172,8 @@ namespace Author_Task
                 else
                 {
                     Author searchedAuthor = this.authors.First(a => a.Id == author.Id);
-                    int index = this.authors.IndexOf(searchedAuthor);
-                    this.authors[index] = authorResult;
+                    int authorIndex = this.authors.IndexOf(searchedAuthor);
+                    this.authors[authorIndex] = authorResult;
                     this.AuthorsListView.Items.Refresh();
                 }
             }
@@ -313,7 +182,7 @@ namespace Author_Task
         private void ShowBookWindow(string title, Book book)
         {
             BookWindow bookWindow = new BookWindow() { Title = title, DataContext = book };
-            if ((bool)bookWindow.ShowDialog())
+            if (bookWindow.ShowDialog().Value)
             {
                 Book bookResult = bookWindow.DataContext as Book;
                 Author selectedAuthor = this.AuthorsListView.SelectedItem as Author;
@@ -350,7 +219,7 @@ namespace Author_Task
             Author selectedAuthor = this.AuthorsListView.SelectedItem as Author;
             Author author = selectedAuthor.Clone() as Author;
             author.IsNew = false;
-            this.ShowAuthorWindow("New Author", author);
+            this.ShowAuthorWindow("Edit Author", author);
         }
 
         private void ChangeBook()

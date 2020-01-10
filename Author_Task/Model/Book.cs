@@ -13,20 +13,15 @@ namespace Author_Task.Model
 
         public decimal Cost { get; set; }
 
+        public bool IsRead { get; set; }
+
         public DateTime YearOfPublishing { get; set; }
 
         public Language Language { get; set; }
 
-        public bool IsRead { get; set; }
-
         public Book()
         {
             this.YearOfPublishing = DateTime.Now;
-        }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone();
         }
     }
 }

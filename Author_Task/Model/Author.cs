@@ -14,13 +14,13 @@ namespace Author_Task.Model
 
         public string LastName { get; set; }
 
+        public string PlaceOfBirth { get; set; }
+
         public DateTime BirthDate { get; set; }
 
         public Country Country { get; set; }
 
         public Language Language { get; set; }
-
-        public string PlaceOfBirth { get; set; }
 
         public ObservableCollection<Book> Books { get; set; }
 
@@ -33,11 +33,6 @@ namespace Author_Task.Model
         public override string ToString()
         {
             return $"{this.FirstName} {this.LastName}";
-        }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone();
         }
     }
 }

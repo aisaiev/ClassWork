@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Author_Task.Model
 {
-    public class EntityBase
+    public class EntityBase : ICloneable
     {
         private static int counter;
 
@@ -18,6 +18,11 @@ namespace Author_Task.Model
         {
             this.IsNew = true;
             this.Id = counter++;
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
