@@ -3,6 +3,7 @@ using DepartmentsMvvm.ViewModels.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,53 @@ using System.Windows.Input;
 
 namespace DepartmentsMvvm.ViewModels
 {
-    public class DepartmentsViewModel
+    public class DepartmentsViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Employee> Employees { get; set; }
+        private ObservableCollection<Employee> employees;
 
-        public Employee SelectedEmployee { get; set; }
+        private Employee selectedEmployee;
+
+        public ObservableCollection<Employee> Employees
+        {
+            get
+            {
+                return this.employees;
+            }
+            set
+            {
+                if (this.employees == value)
+                {
+                    return;
+                }
+                this.employees = value;
+                this.OnPropertyChanged(nameof(this.Employees));
+            }
+        }
+
+        public Employee SelectedEmployee
+        {
+            get
+            {
+                return this.selectedEmployee;
+            }
+            set
+            {
+                if (this.selectedEmployee == value)
+                {
+                    return;
+                }
+                this.selectedEmployee = value;
+                this.OnPropertyChanged(nameof(this.SelectedEmployee));
+            }
+        }
 
         public ICommand NewEmployeeCommand { get; set; }
 
         public ICommand DeleteEmployeeCommand { get; set; }
 
         public ICommand GetEmployeesCommand { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public DepartmentsViewModel()
         {
@@ -36,7 +73,7 @@ namespace DepartmentsMvvm.ViewModels
             int maxId = 0;
             if (this.Employees.Count > 0)
             {
-                 maxId = this.Employees.Max(x => x.Id);
+                maxId = this.Employees.Max(x => x.Id);
             }
             this.Employees.Add(new Employee(++maxId, null, null, DateTime.Now, false));
         }
@@ -58,7 +95,7 @@ namespace DepartmentsMvvm.ViewModels
 
         public void GetEmployeesCommandExecute(object obj)
         {
-            List<Employee> employees = new List<Employee>()
+            this.Employees = new ObservableCollection<Employee>()
             {
                 new Employee(1, "Steven", "Marketing", new DateTime(2003, 6, 17), false),
                 new Employee(2, "Neena", "Marketing", new DateTime(2005, 9, 21), false),
@@ -71,10 +108,15 @@ namespace DepartmentsMvvm.ViewModels
                 new Employee(9, "Nancy", "IT", new DateTime(2005, 5, 1), false),
                 new Employee(10, "Daniel", "Public Relations", new DateTime(2007, 5, 5), false),
             };
-            foreach (var employee in employees)
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged is null)
             {
-                this.Employees.Add(employee);
+                return;
             }
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
