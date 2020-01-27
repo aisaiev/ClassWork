@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Author_Task.Views"
         xmlns:tools="clr-namespace:Author_Task.Tools"
         mc:Ignorable="d"
-        Title="Book" Height="200" Width="280" ResizeMode="NoResize">
+        Title="Book" Height="250" Width="280" ResizeMode="NoResize">
     <Window.Resources>
         <tools:IsNewToTextConverter x:Key="IsNewToTextConverter"></tools:IsNewToTextConverter>
     </Window.Resources>

@@ -8,7 +8,7 @@
         xmlns:tools="clr-namespace:Author_Task.Tools"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Author" Height="310" Width="280" ResizeMode="NoResize">
+        Title="Author" Height="380" Width="320" ResizeMode="NoResize">
     <Window.Resources>
         <ObjectDataProvider x:Key="CountryEnum" MethodName="GetValues"
                         ObjectType="{x:Type sys:Enum}">
