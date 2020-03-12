@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Presentation.View.StudentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             DataContext="{Binding StudentViewModel, Source={StaticResource Locator}}"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Width" Value="250"/>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+            <Label Content="Students:"/>
+            <ListView ItemsSource="{Binding Students}"
+                      SelectedItem="{Binding SelectedStudent}"
+                      Height="500"
+                      Width="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="{Binding FirstName}"/>
+                            <TextBlock Text="{Binding Email}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Content="Get Students" Command="{Binding GetStudentsCommmand}" />
+            <Button Content="Delete Student" Command="{Binding DeleteStudentCommand}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <DockPanel>
+                <Label Content="Books:"/>
+                <Label Content="{Binding SelectedStudent.Books.Count}" ContentStringFormat="Count: {0}" HorizontalAlignment="Right"/>
+            </DockPanel>
+            <ListView ItemsSource="{Binding SelectedStudent.Books}"
+                      Height="500"
+                      Width="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="{Binding Author}"/>
+                            <TextBlock Text="{Binding Title}"/>
+                            <TextBlock Text="{Binding Year, StringFormat='yyyy'}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Left">
+            <Label Content="First Name"/>
+            <TextBox Text="{Binding SelectedStudent.FirstName}"/>
+            <Label Content="Last Name"/>
+            <TextBox Text="{Binding SelectedStudent.LastName}"/>
+            <Label Content="Date Of Birth"/>
+            <TextBox Text="{Binding SelectedStudent.DateOfBirth, StringFormat='MM/dd/yyyy'}"/>
+            <Label Content="Enterance Date"/>
+            <TextBox Text="{Binding SelectedStudent.EnteranceDate, StringFormat='MM/dd/yyyy'}"/>
+            <Label Content="Email"/>
+            <TextBox Text="{Binding SelectedStudent.Email}"/>
+            <Label Content="Phone Number"/>
+            <TextBox Text="{Binding SelectedStudent.PhoneNumber}"/>
+            <Label Content="Country"/>
+            <TextBox Text="{Binding SelectedStudent.Address.Country}"/>
+            <Label Content="City"/>
+            <TextBox Text="{Binding SelectedStudent.Address.City}"/>
+            <Label Content="Address"/>
+            <TextBox Text="{Binding SelectedStudent.Address.Address}"/>
+            <Label Content="PostalCode"/>
+            <TextBox Text="{Binding SelectedStudent.Address.PostalCode}"/>
+            <Button Content="Save Changes" Command="{Binding SaveStudentsCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
