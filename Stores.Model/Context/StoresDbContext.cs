@@ -2,8 +2,6 @@
 using Stores.Model.Entity.Production;
 using Stores.Model.Entity.Sales;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Store.Model.Context
 {

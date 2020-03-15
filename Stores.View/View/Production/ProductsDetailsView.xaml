@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Stores.View.View.Production.ProductsDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label FontWeight="Bold" Content="Product Details"></Label>
+            <TextBlock Text="{Binding Category.CategoryName, StringFormat='Category: {0}'}"></TextBlock>
+            <TextBlock Text="{Binding Brand.BrandName, StringFormat='Brand: {0}'}"></TextBlock>
+            <TextBlock Text="{Binding ProductName, StringFormat='Name: {0}'}"></TextBlock>
+            <TextBlock Text="{Binding ModelYear, StringFormat='Model year: {0:yyyy}'}"></TextBlock>
+            <TextBlock Text="{Binding ListPrice, StringFormat='Price: {0}'}"></TextBlock>
+            <TextBlock Text="Stocks:"></TextBlock>
+            <ListView ItemsSource="{Binding Stocks}" Height="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Quantity, StringFormat='Quantity: {0}'}"></TextBlock>
+                            <TextBlock Text="{Binding Store.StoreName, StringFormat='Store: {0}'}"></TextBlock>
+                            <TextBlock Text="{Binding Store.City, StringFormat='City: {0}'}"></TextBlock>
+                            <TextBlock Text="{Binding Store.State, StringFormat='State: {0}'}"></TextBlock>
+                            <TextBlock Text="{Binding Store.Phone, StringFormat='Phone: {0}'}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</UserControl>

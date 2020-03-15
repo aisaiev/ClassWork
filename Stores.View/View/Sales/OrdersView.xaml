@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="Stores.View.View.Sales.OrdersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:View="clr-namespace:Stores.View.View.Sales"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" Margin="5">
+            <Label FontWeight="Bold" Content="Orders"></Label>
+            <ListView ItemsSource="{Binding Orders}" SelectedItem="{Binding SelectedOrder}" Height="150">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding OrderId, StringFormat='Id: {0}'}"></TextBlock>
+                            <TextBlock Text="{Binding OrderDate, StringFormat='Order Date: {0:dd/MM/yyyy}'}"></TextBlock>
+                            <TextBlock Text="{Binding OrderStatus, StringFormat='Status: {0}'}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <View:OrderDetailsView Grid.Column="0" Grid.Row="1" DataContext="{Binding OrderDetailsViewModel}"></View:OrderDetailsView>
+    </Grid>
+</UserControl>
